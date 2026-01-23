@@ -1,0 +1,14 @@
+metrics:
+  histograms:
+    - name: fsd_statx_latency
+      help: statx latency histogram
+      ebpf_map: fsd_statx_latency
+      bucket_type: exp2
+      bucket_min: 0
+      bucket_max: 27
+      bucket_multiplier: 0.000001
+      labels:
+        - name: bucket
+          size: 8
+          decoders:
+            - name: uint

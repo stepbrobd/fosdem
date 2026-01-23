@@ -31,11 +31,12 @@ flags = [
     '-I' + meson.current_source_dir() / 'include' / 'vmlinux' / target,
 ]
 
-main = custom_target(
+install_data('src/main.yaml', install_dir: get_option('libexecdir'))
+custom_target(
     'main.bpf.o',
     input: 'src/main.bpf.c',
     output: 'main.bpf.o',
     command: [clang, flags, '-c', '@INPUT@', '-o', '@OUTPUT@'],
     install: true,
-    install_dir: get_option('libexecdir') / 'main.bpf.o',
+    install_dir: get_option('libexecdir'),
 )
