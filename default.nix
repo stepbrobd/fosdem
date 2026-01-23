@@ -6,7 +6,7 @@
   pkg-config,
   libbpf,
   prometheus-ebpf-exporter,
-  # testers,
+  testers,
 }:
 
 llvmPackages.stdenv.mkDerivation (finalAttrs: {
@@ -37,7 +37,7 @@ llvmPackages.stdenv.mkDerivation (finalAttrs: {
   dontFixup = true;
 
   passthru = {
-    # tests.exporter = testers.runNixOSTest ./test.nix;
+    tests.default = testers.runNixOSTest ./test;
     full = finalAttrs.overrideAttrs {
       postInstall = ''
         cp ${prometheus-ebpf-exporter}/examples/*.bpf.o $out/libexec/
