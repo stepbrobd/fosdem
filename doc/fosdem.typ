@@ -203,18 +203,20 @@
   Say we want to troll ourselves:
 
   ```c
-  SEC("kretsyscall/statx")
-  int BPF_KRETPROBE(kretsyscall_statx, long ret) {
-    struct context *context = bpf_map_lookup_elem(...);
-    struct statx_timestamp ts = {0, 0};
-    bpf_probe_write_user(&context->statxbuf->stx_atime, &ts, sizeof(ts));
-    // ...                        stx_btime, stx_ctime, stx_mtime
+  SEC("ksyscall/statx")
+  int BPF_KSYSCALL(fsd_statx_entry, ... statx(2) args) {
+    // generate a map entry to collect start ts
+    // check path, if not match return
+    // else override with a static statx content
+    struct statx stx = { ... };
+    bpf_probe_write_user(statxbuf, &stx, sizeof(stx));
+    return bpf_override_return(ctx, 0);
   }
   ```
 
-  And count how many times we've footgun-de ourselves
+  And count how many times we can footgun ourselves
 
-  With a regular counter and histogram
+  With a counter and a histogram
 ]
 
 #slide[
@@ -227,5 +229,30 @@
 ]
 
 #slide[
+  == Local testing
+
+  For simplicity
+
+  - We will be using a readily available userspace tool
+    - Loading the program
+    - Read the map and re-expose the content over Prometheus
+
+  Complication is fast
+
+  - Build once and its immutable
+  - Push cache to server (or have a CI server build it)
+  - SBOM
+
+  Debugging is easy
+
+  - SSH backdoor enable with a knob
+]
+
+#slide[
   == Straight to prod
+
+  Bit-perfect reproducibility (\*: for some store paths)
+
+  Everything is in closure
+  - Deployment harness is easy to write
 ]
