@@ -1,5 +1,9 @@
+{ pkgs, ... }:
+
 {
   networking.firewall.enable = false;
+
+  environment.systemPackages = [ pkgs.curl ];
 
   services.grafana = {
     enable = true;

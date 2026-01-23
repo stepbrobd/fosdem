@@ -18,9 +18,11 @@
     exporter.succeed("zcat /proc/config.gz | grep CONFIG_BPF_KPROBE_OVERRIDE=y")
     exporter.succeed("zcat /proc/config.gz | grep CONFIG_FUNCTION_ERROR_INJECTION=y")
     exporter.wait_for_unit("prometheus-ebpf-exporter.service")
+    exporter.wait_for_unit("prometheus.service")
+    exporter.wait_for_unit("caddy.service")
 
     collector.wait_for_unit("grafana.service")
-    collector.succeed("curl http://exporter/prometheus/metrics")
-    collector.succeed("curl http://exporter/loki/metrics")
+    collector.succeed("curl -i http://exporter/prometheus/metrics")
+    collector.succeed("curl -i http://exporter/loki/metrics")
   '';
 }
