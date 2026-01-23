@@ -5,11 +5,12 @@
       systems = import inputs.systems;
 
       perSystem =
-        { lib
-        , pkgs
-        , system
-        , self'
-        , ...
+        {
+          lib,
+          pkgs,
+          system,
+          self',
+          ...
         }:
         {
           _module.args.pkgs = import inputs.nixpkgs {
@@ -19,35 +20,22 @@
 
           devShells.default = (pkgs.mkShell.override { stdenv = pkgs.stdenvNoCC; }) {
             hardeningDisable = [ "all" ];
+
+            inputsFrom = with pkgs; [
+              fosdem
+              slides
+            ];
+
             packages =
               with pkgs;
               (lib.flatten [
-                pkg-config
-                (with llvmPackages; [
-                  bintools
-                  clang
-                ])
                 (lib.optionals stdenv.isLinux [
                   bpftools
                   bpftrace
-                  libbpf
                   linuxHeaders
                 ])
 
                 bear
-                # deno
-                findutils
-
-                meson
-                ninja
-
-                (typst.withPackages (
-                  _: with _; [
-                    cetz
-                    polylux
-                  ]
-                ))
-                typstyle
               ]);
           };
 
@@ -60,12 +48,17 @@
             ${lib.getExe pkgs.typstyle} --inplace **/*.typ
           '';
 
-          packages.default = pkgs.fosdem;
           checks.default = self'.packages.default.tests.default;
+
+          packages = rec {
+            inherit (pkgs) fosdem slides;
+            default = fosdem;
+          };
         };
 
       flake.overlays.default = final: prev: {
         fosdem = prev.callPackage (import ./default.nix) { };
+        slides = prev.callPackage (import ./doc) { };
       };
     };
 
