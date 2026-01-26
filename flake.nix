@@ -9,6 +9,7 @@
           lib,
           pkgs,
           system,
+          inputs',
           self',
           ...
         }:
@@ -29,6 +30,7 @@
             packages =
               with pkgs;
               (lib.flatten [
+                inputs'.nxc.packages.nixos-compose
                 bear
                 (with llvmPackages; [
                   clang
@@ -56,6 +58,11 @@
           packages = rec {
             inherit (pkgs) fosdem slides;
             default = fosdem;
+          }
+          // inputs.nxc.lib.compose {
+            inherit (inputs) nixpkgs;
+            inherit system;
+            composition = ./test;
           };
         };
 
@@ -69,4 +76,8 @@
   inputs.parts.url = "github:hercules-ci/flake-parts";
   inputs.parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   inputs.systems.url = "github:nix-systems/default";
+  inputs.nxc.url = "github:oar-team/nixos-compose";
+  inputs.nxc.inputs.flake-utils.inputs.systems.follows = "systems";
+  inputs.nxc.inputs.kapack.inputs.nixpkgs.follows = "nxc/nixpkgs";
+  inputs.nxc.inputs.kapack.inputs.flake-utils.follows = "nxc/flake-utils";
 }

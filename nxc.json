@@ -1,0 +1,4 @@
+{
+  "composition": "test/default.nix",
+  "default_flavour": "g5k-nfs-store"
+}

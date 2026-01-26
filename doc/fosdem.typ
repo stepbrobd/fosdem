@@ -70,12 +70,18 @@
 #slide[
   == Userspace tooling
 
+  Pull packages from pinned `nixpkgs`
+
   ```nix
   devShells.x86_64-linux.default = pkgs.mkShell {
-    inputsFrom = [ ];
-    packages = [ ];
+    inputsFrom = [ <locally defined derivations> ];
+    packages = with pkgs.llvmPackages; [ clang-unwrapped libllvm ];
   };
   ```
+
+  - Compilers
+  - Libraries
+  - ...
 ]
 
 // briefly introduce module system here
@@ -249,10 +255,39 @@
 ]
 
 #slide[
+  == Demo
+
+  - Build interactive driver closure
+
+    `nom build .#checks.x86_64-linux.default.driverInteractive`
+
+  - Start the driver
+
+  ```console
+  $ ./result/bin/nixos-test-driver
+  start vlan
+  running vlan (pid 3859017; ctl /run/user/1000/vde1.ctl)
+  SSH backdoor enabled, the machines can be accessed like this:
+      collector:  ssh -o User=root vsock/3
+      exporter:   ssh -o User=root vsock/4
+  ```
+]
+
+#slide[
   == Straight to prod
 
   Bit-perfect reproducibility (\*: for some store paths)
 
   Everything is in closure
   - Deployment harness is easy to write
+]
+
+#slide[
+  == Demo
+
+  - Build deployment closure (instrumented with NixOS test)
+
+    `nxc build`
+
+  - Schedule couple machines and deploy the closure to cluster
 ]

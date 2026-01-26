@@ -1,7 +1,7 @@
-{
-  lib,
-  stdenvNoCC,
-  typst,
+{ lib
+, stdenvNoCC
+, typst
+,
 }:
 
 stdenvNoCC.mkDerivation {
