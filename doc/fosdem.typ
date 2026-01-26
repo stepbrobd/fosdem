@@ -44,7 +44,22 @@
   // and deploying to the actual testbed for experiments and benchmark
 ]
 
-// add a slide about nix and g5k (for introducing testbed)
+#slide[
+  == Background
+
+  #toolbox.side-by-side[
+    *Nix*
+
+    - Declarative & functional
+    - Source code -> Derivations -> Closure
+    - NixOS: operating system as closure
+  ][
+    *Testbed* (Grid'5000 \@ SLICES-FR)
+
+    - Academic, reservation required
+    - Ephemeral bare metal machines
+  ]
+]
 
 #slide[
   == Problem
@@ -69,7 +84,7 @@
   - Binary cache, and benefits from using Nix
 
   *NixOS Compose*
-  - Deployment tool (Grid'5000 \@ SLICES-FR)
+  - Deployment tool
   - Substitute with your own stuff
 ]
 
