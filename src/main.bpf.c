@@ -55,7 +55,7 @@ int BPF_KSYSCALL(fsd_statx_entry, int dirfd, const char *path, int flags,
   bool match = true;
 
   char buf[16];
-  int ret = bpf_probe_read_user_str(&buf, sizeof(buf), path);
+  int ret = bpf_core_read_user_str(&buf, sizeof(buf), path);
   if (ret <= 0) {
     match = false;
     return 0;
