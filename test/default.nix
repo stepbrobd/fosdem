@@ -24,5 +24,11 @@
     collector.wait_for_unit("grafana.service")
     collector.succeed("curl -i http://exporter/prometheus/metrics")
     collector.succeed("curl -i http://exporter/loki/metrics")
+
+    exporter.succeed("touch /tmp/override")
+    exporter.succeed("stat /tmp/override | grep '00:00:00.000000000 +0000'")
+
+    exporter.wait_until_succeeds("systemctl stop prometheus-ebpf-exporter.service")
+    exporter.succeed("stat /tmp/override | grep $(date -u +%F)")
   '';
 }
