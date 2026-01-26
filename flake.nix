@@ -29,13 +29,16 @@
             packages =
               with pkgs;
               (lib.flatten [
+                bear
+                (with llvmPackages; [
+                  clang
+                  libllvm
+                ])
                 (lib.optionals stdenv.isLinux [
                   bpftools
                   bpftrace
                   linuxHeaders
                 ])
-
-                bear
               ]);
           };
 

@@ -34,7 +34,11 @@ llvmPackages.stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [ libbpf ];
 
-  dontFixup = true;
+  fixupPhase = ''
+    runHook preFixup
+    ${lib.getExe' llvmPackages.libllvm "llvm-strip"} -g $out/libexec/*.bpf.o
+    runHook postFixup
+  '';
 
   passthru = {
     tests.default = testers.runNixOSTest ./test;
