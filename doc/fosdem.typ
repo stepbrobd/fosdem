@@ -38,10 +38,18 @@
   - Multicast caching system for networked FS over XDP
   - Its running late
   - So here I am...
+
+  // add a picture here
+  // from my laptop developing here
+  // and deploying to the actual testbed for experiments and benchmark
 ]
+
+// add a slide about nix and g5k (for introducing testbed)
 
 #slide[
   == Problem
+
+  // what's the actual problem in one sentence (the global pov)
 
   - Environment setup and collboration
     - Headers, compiler, editor...
@@ -131,9 +139,16 @@
   ]
 ]
 
+// stress that nixos test wraps two paragims
+// functional for nodes config
+// imperitive for the test script
+
 #slide[
   == One machine
 
+  // add arrows for the slides
+  // arrows pointing to closure generation
+  // arrows pointing to generating python script
   ```nix
   pkgs.testers.runNixOSTest {
     name = "one-machine-test";
@@ -203,6 +218,10 @@
   ]
 ]
 
+// also add a figure on how the program is built and
+// how does it comes in place and loadded
+// modify the kernel slide and vm test slides
+// to support the infra for the ebpf program we are running
 #slide[
   == Mock syscall
 
@@ -225,6 +244,11 @@
   With a counter and a histogram
 ]
 
+// add a picture illustrating the experiment
+// a laptop, which node is running modified kernel
+// and which ones is running grafana
+// and testbed
+
 #slide[
   == Declarative userspace program
 
@@ -234,6 +258,10 @@
   - Deployment (feat. NixOS-Compose)
 ]
 
+// what's the difference between local test and testbed?
+// deploying to testbed is costly, its better if we can rapidily iterate
+// the project on local machine and the remote deployment has the guarentee
+// to stay the same as local development
 #slide[
   == Local testing
 
@@ -291,3 +319,6 @@
 
   - Schedule couple machines and deploy the closure to cluster
 ]
+
+// add a slides on evaluation
+// e.g. lines of code to get this running
