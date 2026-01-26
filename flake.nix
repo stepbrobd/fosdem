@@ -77,5 +77,4 @@
   inputs.parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   inputs.systems.url = "github:nix-systems/default";
   inputs.nxc.url = "github:oar-team/nixos-compose";
-  inputs.nxc.inputs.flake-utils.inputs.systems.follows = "systems";
 }
