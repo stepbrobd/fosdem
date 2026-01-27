@@ -337,3 +337,21 @@
 
 // add a slides on evaluation
 // e.g. lines of code to get this running
+#slide[
+  == Effort
+
+  #toolbox.side-by-side[
+    Less than 250 LoC
+
+    - Portable modules
+    - Composable with other services
+    - Adding new programs to deployment only adds a couple characters
+  ][
+    ```nix
+    services.prometheus.exporters.ebpf = {
+      enable = true;
+      names = [ "a" "b" "c" ... ];
+    };
+    ```
+  ]
+]
