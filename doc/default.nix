@@ -13,10 +13,11 @@ stdenvNoCC.mkDerivation {
     toSource {
       root = ./.;
       fileset = unions [
-        ./fosdem.typ
+        ./deploy.pdf
         ./ensl.png
         ./inria.png
         ./uga.png
+        ./fosdem.typ
       ];
     };
 
