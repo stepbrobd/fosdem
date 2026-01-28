@@ -1,4 +1,5 @@
 { lib, pkgs, ... }:
+
 {
   boot.supportedFilesystems.zfs = lib.mkForce false;
   boot.initrd.supportedFilesystems.zfs = lib.mkForce false;

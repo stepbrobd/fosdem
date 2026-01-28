@@ -1,4 +1,5 @@
 #import "@preview/cetz:0.4.2": *
+#import "@preview/muchpdf:0.1.2": muchpdf
 #import "@preview/polylux:0.4.0": *
 
 #let title = "eBPF with Nix: laptop to testbed"
@@ -31,34 +32,51 @@
 ]
 
 #slide[
-  == Background
+  == Goals
 
-  *I started a project*
-
-  - Multicast caching system for networked FS over XDP
-  - Its running late
-  - So here I am...
+  #item-by-item[
+    - DevOps
+    - Demonstrate how I use Nix to do BPF related work
+  ]
 
   // add a picture here
   // from my laptop developing here
   // and deploying to the actual testbed for experiments and benchmark
+  #set align(center)
+  #muchpdf(read("deploy.pdf", encoding: none))
 ]
 
 #slide[
   == Background
 
-  #toolbox.side-by-side[
-    *Nix*
+  *I started a project*
 
+  #item-by-item[
+    - Multicast caching system for networked FS over XDP
+    - Its running late
+    - So here I am...
+  ]
+]
+
+#slide[
+  == Background
+
+  *Nix*
+
+  #item-by-item[
     - Declarative & functional
     - Source code -> Derivations -> Closure
     - NixOS: operating system as closure
-  ][
-    *Testbed* (Grid'5000 \@ SLICES-FR)
-
-    - Academic, reservation required
-    - Ephemeral bare metal machines
+    - Nix and NixOS devroom \@ UA2.118 (Henriot)
   ]
+]
+
+#slide[
+  == Background
+  *Testbed* (Grid'5000 \@ SLICES-FR)
+
+  - Academic HPC cluster, reservation required
+  - Ephemeral bare metal machines
 ]
 
 #slide[
@@ -66,13 +84,15 @@
 
   // what's the actual problem in one sentence (the global pov)
 
-  - Environment setup and collboration
-    - Headers, compiler, editor...
-    - KConfig, QEMU, ... (what if multiple machine is needed?)
-  - Development, deployment and benchmark
-    - Cluster boot, data collection, ...
-  - Peer review
-    - Ease of result reproduction
+  #item-by-item[
+    - Environment setup and collboration
+      - Headers, compiler, editor...
+      - KConfig, QEMU, ... (what if multiple machines are needed?)
+    - Development, deployment and benchmark
+      - Cluster boot, data collection, ...
+    - Peer review
+      - Reproducing benchmark results
+  ]
 ]
 
 #slide[
@@ -97,7 +117,7 @@
 
   ```nix
   devShells.x86_64-linux.default = pkgs.mkShell {
-    inputsFrom = [ <locally defined derivations> ];
+    inputsFrom = [ <derivations> ];
     packages = with pkgs.llvmPackages; [ clang-unwrapped libllvm ];
   };
   ```
@@ -113,7 +133,7 @@
 
   #toolbox.side-by-side[
     #set text(size: 14pt)
-    ```nix
+    #reveal-code(lines: (4, 12, 14, 18))[```nix
     kernel = {
       version = "6.19.0-rc5+multikernel";
       modDirVersion = "6.19.0-rc5";
@@ -133,23 +153,29 @@
         MULTIKERNEL = lib.kernel.yes;
       };
     };
-    ```
+    ```]
   ][
-    #set text(size: 15pt)
+    #show: later
+    #show: later
+    #show: later
+    #show: later
+    #set text(size: 14pt)
     ```nix
-    boot.kernelPackages = pkgs.linuxPackagesFor (
-      pkgs.callPackage (
-        { buildLinux, fetchFromGitHub, ... } @ args:
-        buildLinux (
-          args
-          //
-          kernel # <--
-          //
-          (args.argsOverride or { })
+    {
+      boot.kernelPackages = pkgs.linuxPackagesFor (
+        pkgs.callPackage (
+          { buildLinux, fetchFromGitHub, ... } @ args:
+          buildLinux (
+            args
+            //
+            kernel # <--
+            //
+            (args.argsOverride or { })
+          )
         )
-      )
-      { }
-    );
+        { }
+      );
+    }
     ```
   ]
 ]
@@ -164,22 +190,33 @@
   // add arrows for the slides
   // arrows pointing to closure generation
   // arrows pointing to generating python script
-  ```nix
-  pkgs.testers.runNixOSTest {
-    name = "one-machine-test";
+  #toolbox.side-by-side[
+    #set text(size: 16pt)
+    #reveal-code(lines: (2, 7))[```nix
+    pkgs.testers.runNixOSTest {
+      name = "one-machine-test";
 
-    nodes.machine1 = {
-      imports = [ nixosModules.kernel ];
-      services.scx.enable = true;
-    };
+      nodes.machine1 = {
+        imports = [ nixosModules.kernel ];
+        services.scx.enable = true;
+      };
 
-    testScript = ''
-      machine1.wait_for_unit("default.target")
-      machine1.succeed("")
-      machine1.fail("")
-    '';
-  }
-  ```
+      testScript = ''
+        machine1.wait_for_unit("default.target")
+        machine1.succeed("")
+        machine1.fail("")
+      '';
+    }
+    ```]
+  ][
+    - Boilerplate
+    #v(2em)
+    #show: later
+    - Declarative NixOS closure generation
+    #v(3em)
+    #show: later
+    - Imperative Python stmts to invoke tests
+  ]
 ]
 
 #slide[
@@ -215,16 +252,19 @@
     test.driverInteractive  ...
     ```
 
+    #show: later
     Node closure:
 
     `<test>.nodes.<name>.system.build.toplevel`
 
+    #show: later
     Driver:
 
     `<test>.driver` (run `testScript`)
 
     `<test>.driverInteractive` (Python shell)
   ][
+    #show: later
     Python test driver (was Perl \~2009)
     - Nodes
       - `qemu`

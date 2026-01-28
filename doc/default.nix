@@ -1,7 +1,7 @@
-{ lib
-, stdenvNoCC
-, typst
-,
+{
+  lib,
+  stdenvNoCC,
+  typst,
 }:
 
 stdenvNoCC.mkDerivation {
@@ -24,6 +24,7 @@ stdenvNoCC.mkDerivation {
     (typst.withPackages (
       _: with _; [
         cetz
+        muchpdf
         polylux
       ]
     ))
