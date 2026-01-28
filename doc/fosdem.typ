@@ -42,8 +42,9 @@
   // add a picture here
   // from my laptop developing here
   // and deploying to the actual testbed for experiments and benchmark
+  #show: later
   #set align(center)
-  #muchpdf(read("deploy.pdf", encoding: none))
+  #muchpdf(read("cycle.pdf", encoding: none), scale: 2.5)
 ]
 
 #slide[
@@ -65,7 +66,7 @@
 
   #item-by-item[
     - Declarative & functional
-    - Source code -> Derivations -> Closure
+    - Source code $arrow$ Derivations #footnote(numbering: _ => "1")[https://zero-to-nix.com/concepts/derivations/] $arrow$ Closure #footnote(numbering: _ => "2")[https://zero-to-nix.com/concepts/closures/]
     - NixOS: operating system as closure
     - Nix and NixOS devroom \@ UA2.118 (Henriot)
   ]
@@ -76,7 +77,15 @@
   *Testbed* (Grid'5000 \@ SLICES-FR)
 
   - Academic HPC cluster, reservation required
-  - Ephemeral bare metal machines
+  - *Ephemeral* bare metal machines
+]
+
+#slide[
+  == Background
+
+  #set align(center)
+  #box(muchpdf(read("cycle.pdf", encoding: none), scale: 1))
+  #box(image("g5k.png", height: 91%))
 ]
 
 #slide[
@@ -104,7 +113,7 @@
   - Binary cache, and benefits from using Nix
 
   *NixOS Compose*
-  - Deployment tool
+  - Deployment tool for *ephemeral* experiments
   - Substitute with your own stuff
 ]
 
@@ -262,10 +271,10 @@
 
     `<test>.driver` (run `testScript`)
 
-    `<test>.driverInteractive` (Python shell)
+    `<test>.driverInteractive` (Python repl)
   ][
     #show: later
-    Python test driver (was Perl \~2009)
+    Python test driver
     - Nodes
       - `qemu`
     - VLANs
