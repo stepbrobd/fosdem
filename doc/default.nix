@@ -15,9 +15,13 @@ stdenvNoCC.mkDerivation {
       fileset = unions [
         ./cycle.pdf
         ./flow.pdf
+        ./nix.jpg
+        ./slices.jpg
         ./ensl.png
         ./g5k.png
+        ./grid5000.png
         ./inria.png
+        ./nxc.png
         ./uga.png
         ./fosdem.typ
       ];

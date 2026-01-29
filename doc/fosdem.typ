@@ -68,9 +68,9 @@
 #slide[
   == Background
 
-  // add nix logo
   *Nix*
 
+  #image("nix.jpg", height: 20%)
   #item-by-item[
     - *Declarative* & functional
     - Source code $arrow$ Derivations #footnote(numbering: _ => "1")[https://zero-to-nix.com/concepts/derivations/] $arrow$ Closure #footnote(numbering: _ => "2")[https://zero-to-nix.com/concepts/closures/]
@@ -84,8 +84,11 @@
 #slide[
   == Background
 
-  // add g5k logo
   *Testbed* (Grid'5000 \@ SLICES-FR)
+
+  #box(image("grid5000.png", height: 20%))
+  #h(1em)
+  #box(image("slices.jpg", height: 20%))
 
   - Academic HPC cluster, reservation required
   - *Ephemeral* bare metal machines
@@ -126,7 +129,10 @@
   - Multi-machines, different kernels, networking
   - Binary cache, and benefits from using Nix
 
-  *NixOS Compose* // add logo
+  *NixOS Compose*
+  #h(1em)
+  #box(image("nxc.png", height: 4%))
+
   - Multi-flavor deployment tool for *ephemeral* experiments
     - systemd-nspawn
     - Docker
