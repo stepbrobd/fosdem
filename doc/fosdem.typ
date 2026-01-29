@@ -20,7 +20,7 @@
 #slide[
   = #title
 
-  Yifei Sun
+  Yifei Sun - PhD Student at
 
   Inria, ENS de Lyon, Université Grenoble Alpes
 
@@ -29,6 +29,9 @@
   #box(move(dx: 0pt, dy: 15pt, image("ensl.png", height: 12.5%)))
   #h(1em)
   #box(move(dx: 0pt, dy: 9pt, image("uga.png", height: 11.5%)))
+
+  // add a funny image
+  // mention there will be a demo
 ]
 
 #slide[
@@ -45,6 +48,9 @@
   #show: later
   #set align(center)
   #muchpdf(read("cycle.pdf", encoding: none), scale: 2.5)
+
+  // add name to the VMs in box, and add another one above testbed
+  // name the testbed
 ]
 
 #slide[
@@ -62,18 +68,23 @@
 #slide[
   == Background
 
+  // add nix logo
   *Nix*
 
   #item-by-item[
-    - Declarative & functional
+    - *Declarative* & functional
     - Source code $arrow$ Derivations #footnote(numbering: _ => "1")[https://zero-to-nix.com/concepts/derivations/] $arrow$ Closure #footnote(numbering: _ => "2")[https://zero-to-nix.com/concepts/closures/]
     - NixOS: operating system as closure
     - Nix and NixOS devroom \@ UA2.118 (Henriot)
   ]
+
+  // also mention module system in to concepts
 ]
 
 #slide[
   == Background
+
+  // add g5k logo
   *Testbed* (Grid'5000 \@ SLICES-FR)
 
   - Academic HPC cluster, reservation required
@@ -94,13 +105,16 @@
   // what's the actual problem in one sentence (the global pov)
 
   #item-by-item[
-    - Environment setup and collboration
+    - Environment setup and collaboration
       - Headers, compiler, editor...
       - KConfig, QEMU, ... (what if multiple machines are needed?)
     - Development, deployment and benchmark
       - Cluster boot, data collection, ...
     - Peer review
       - Reproducing benchmark results
+    // for g5k, minimizing the impact of external states on the benchmark
+    // the factors for reproducibility: sw, hw, and states
+    // different "reproducibility", reproducibility of sw vs benchmark results in eval
   ]
 ]
 
@@ -112,8 +126,12 @@
   - Multi-machines, different kernels, networking
   - Binary cache, and benefits from using Nix
 
-  *NixOS Compose*
-  - Deployment tool for *ephemeral* experiments
+  *NixOS Compose* // add logo
+  - Multi-flavor deployment tool for *ephemeral* experiments
+    - systemd-nspawn
+    - Docker
+    - Bare metal
+    - ...
   - Substitute with your own stuff
 ]
 
@@ -139,6 +157,10 @@
 // briefly introduce module system here
 #slide[
   == Get a kernel
+
+  // mention multikernel in footnote
+  // also this is a declarative appraoch to swap
+  // whatever you want, and ordering does not matter
 
   #toolbox.side-by-side[
     #set text(size: 14pt)
@@ -195,6 +217,8 @@
 
 #slide[
   == One machine
+
+  // add scx to footnote
 
   // add arrows for the slides
   // arrows pointing to closure generation
@@ -294,7 +318,7 @@
   ```c
   SEC("ksyscall/statx")
   int BPF_KSYSCALL(fsd_statx_entry, ... statx(2) args) {
-    // generate a map entry to collect start ts
+    // generate a map entry to collect start timestamp
     // check path, if not match return
     // else override with a static statx content
     struct statx stx = { ... };
@@ -323,16 +347,15 @@
 ]
 
 #slide[
-  == How?
+  == How? // maybe change the title
 
   #set align(center)
   #muchpdf(read("flow.pdf", encoding: none), scale: 1.845)
+  // add labels
+  // separate arrows for vm and physical
+  // levels? pkg level os level deployment level?
 ]
 
-// what's the difference between local test and testbed?
-// deploying to testbed is costly, its better if we can rapidily iterate
-// the project on local machine and the remote deployment has the guarentee
-// to stay the same as local development
 #slide[
   == Local testing
 
@@ -355,6 +378,8 @@
 
 #slide[
   == Demo
+
+  // use the flow figure and highlight the part we are doing
 
   - Build interactive driver closure
 
@@ -384,6 +409,8 @@
 #slide[
   == Demo
 
+  // see above
+
   - Build deployment closure (instrumented with NixOS test)
 
     `nxc build`
@@ -394,20 +421,28 @@
 // add a slides on evaluation
 // e.g. lines of code to get this running
 #slide[
-  == Effort
+  == Conclusion
 
   #toolbox.side-by-side[
-    Less than 250 LoC
+    Less than 250 LoC (Nix)
 
     - Portable modules
     - Composable with other services
     - Adding new programs to deployment only adds a couple characters
   ][
+    #set text(size: 18pt)
     ```nix
     services.prometheus.exporters.ebpf = {
       enable = true;
-      names = [ "a" "b" "c" ... ];
+      # bpf object file names
+      names = [
+        "oomkill"
+        "softirq-latency"
+        ...
+      ];
     };
     ```
   ]
+
+  // add link
 ]
