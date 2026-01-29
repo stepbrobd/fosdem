@@ -322,6 +322,13 @@
   - Deployment (feat. NixOS-Compose)
 ]
 
+#slide[
+  == How?
+
+  #set align(center)
+  #muchpdf(read("flow.pdf", encoding: none), scale: 1.845)
+]
+
 // what's the difference between local test and testbed?
 // deploying to testbed is costly, its better if we can rapidily iterate
 // the project on local machine and the remote deployment has the guarentee

@@ -1,0 +1,148 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
+  <diagram name="Page-1" id="e8aebNhDpyJmpREgJy9W">
+    <mxGraphModel dx="815" dy="1198" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="160" width="190" x="596" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="270" width="157" x="225" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="205" width="140" x="232" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="90" width="120" x="242" y="635" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="*.bpf.c" vertex="1">
+          <mxGeometry height="40" width="60" x="252" y="675" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;source files...&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="60" x="292" y="645" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="src" vertex="1">
+          <mxGeometry height="30" width="60" x="232" y="635" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;pname = &quot;...&quot;;&lt;/div&gt;version = &quot;...&quot;;" vertex="1">
+          <mxGeometry height="30" width="110" x="225" y="602" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;inputs = [ ... ];&lt;/div&gt;&lt;div&gt;phases = &quot;...&quot;;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="242" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="110" width="120" x="431" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="/nix/store/xxx-name/" vertex="1">
+          <mxGeometry height="30" width="120" x="431" y="546" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="lib" vertex="1">
+          <mxGeometry height="30" width="50" x="436" y="576" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="bin" vertex="1">
+          <mxGeometry height="30" width="50" x="496" y="576" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="libexec" vertex="1">
+          <mxGeometry height="30" width="50" x="436" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="etc" vertex="1">
+          <mxGeometry height="30" width="50" x="496" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="110" width="120" x="431" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="/nix/store/xxx-name/" vertex="1">
+          <mxGeometry height="30" width="120" x="431" y="661" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="lib" vertex="1">
+          <mxGeometry height="30" width="50" x="436" y="691" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="bin" vertex="1">
+          <mxGeometry height="30" width="50" x="496" y="691" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="libexec" vertex="1">
+          <mxGeometry height="30" width="50" x="436" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="etc" vertex="1">
+          <mxGeometry height="30" width="50" x="496" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=48;" value="&lt;div&gt;...&lt;/div&gt;" vertex="1">
+          <mxGeometry height="20" width="60" x="461" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-29" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" target="fdVueKlnznBVRMOmp-Gv-11" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="496" y="710" as="sourcePoint" />
+            <mxPoint x="546" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-30" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="fdVueKlnznBVRMOmp-Gv-25" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="461" y="720" as="sourcePoint" />
+            <mxPoint x="491" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-34" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;flipV=1;legacyAnchorPoints=0;flipH=1;" value="&lt;div&gt;*.bpf.o&lt;/div&gt;&lt;div&gt;...&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="55" x="412" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;pkg&lt;/div&gt;&lt;div&gt;definition&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="312" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="pkg&lt;div&gt;closure&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="461" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="derivation { ... }" vertex="1">
+          <mxGeometry height="30" width="90" x="230" y="551" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-40" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;pkg&lt;/div&gt;&lt;div&gt;derivation&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="275" y="501" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="boot.kernelPackages = { ... }" vertex="1">
+          <mxGeometry height="35" width="170" x="606" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="systemd.services.prometheus-ebpf-exporter.serviceConfig" vertex="1">
+          <mxGeometry height="40" width="170" x="606" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-47" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="lib.evalModules" vertex="1">
+          <mxGeometry height="30" width="60" x="623" y="547" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-49" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=48;" value="&lt;div&gt;...&lt;/div&gt;" vertex="1">
+          <mxGeometry height="20" width="60" x="664" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-50" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;evaluate and realize -&amp;gt;&lt;/div&gt;&lt;div&gt;/nix/store/xxx-nixos-system-xxx&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="596" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="VM" vertex="1">
+          <mxGeometry height="40" width="60" x="624.5" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Physical" vertex="1">
+          <mxGeometry height="40" width="60" x="697.5" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-53" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="606" y="646" as="sourcePoint" />
+            <mxPoint x="470" y="811" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-54" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="382" y="515.57" as="sourcePoint" />
+            <mxPoint x="441" y="515.57" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-55" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="534" y="515.57" as="sourcePoint" />
+            <mxPoint x="593" y="515.57" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fdVueKlnznBVRMOmp-Gv-56" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="691" y="724" as="sourcePoint" />
+            <mxPoint x="690.4999999999998" y="769" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -14,6 +14,7 @@ stdenvNoCC.mkDerivation {
       root = ./.;
       fileset = unions [
         ./cycle.pdf
+        ./flow.pdf
         ./ensl.png
         ./g5k.png
         ./inria.png
