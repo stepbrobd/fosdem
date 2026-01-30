@@ -32,6 +32,9 @@
 
   // add a funny image
   // mention there will be a demo
+  #v(7em)
+  - Website: #link("https://0.0.9.5.f.2.0.6.2.ip6.arpa")
+  - Email: #link("fosdem@0.0.9.5.f.2.0.6.2.ip6.arpa")
 ]
 
 #slide[
@@ -451,4 +454,25 @@
   ]
 
   // add link
+]
+
+#slide[
+  == Questions?
+
+  #set text(size: 20pt)
+  #v(2em)
+
+  #toolbox.side-by-side[
+    - Code: #link("https://git.sr.ht/~stepbrobd/fosdem")[git.sr.ht/\~stepbrobd/fosdem]
+    - https://team.inria.fr/datamove
+    - https://numpex.org
+  ][
+    - Website: #link("https://0.0.9.5.f.2.0.6.2.ip6.arpa")
+    - Email: #link("fosdem@0.0.9.5.f.2.0.6.2.ip6.arpa")
+  ]
+
+  #v(2em)
+  #set text(size: 24pt)
+  #set align(center)
+  Our team is hiring!
 ]
