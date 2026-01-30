@@ -22,21 +22,23 @@
           devShells.default = (pkgs.mkShell.override { stdenv = pkgs.stdenvNoCC; }) {
             hardeningDisable = [ "all" ];
 
-            inputsFrom = with pkgs; [
-              fosdem
-              slides
+            inputsFrom = [
+              pkgs.slides
+            ]
+            ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+              pkgs.fosdem
             ];
 
             packages =
               with pkgs;
               (lib.flatten [
-                inputs'.nxc.packages.nixos-compose
                 bear
                 (with llvmPackages; [
                   clang
                   libllvm
                 ])
                 (lib.optionals stdenv.isLinux [
+                  inputs'.nxc.packages.nixos-compose
                   bpftools
                   bpftrace
                   linuxHeaders
